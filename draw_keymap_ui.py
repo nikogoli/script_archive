@@ -21,8 +21,7 @@ def draw_main_row(	cls: Any,
                     show_remove_func = True,
                     custom_remove_fuc: Optional[str] = None,
                     custom_remove_prop: Optional[dict[str, Any]] = None) -> None:
-    """
-    キーバインド設定UIの第1列である、オペレーターの名前とキー設定が表示される列を作成する
+    """ キーバインド設定UIの第1列である、オペレーターの名前とキー設定が表示される列を作成する
 
     cls (Any): この関数を draw() 内部で呼び出すクラス (self)
     context (bpy.types.Context): context
@@ -100,8 +99,7 @@ def draw_key_input(	cls: Any,
                     keyitem: KeyMapItem,
                     direction: Union[Literal["vertical"], Literal["horizontal"]] = "vertical",
                     excludes: Optional[list[SubKeyTypeType]] = None ) -> None:
-    """
-    キーバインド設定UIにおける、キー設定の詳細部分の表示を作成する
+    """ キーバインド設定UIにおける、キー設定の詳細部分の表示を作成する
 
     cls (Any): この関数を draw() 内部で呼び出すクラス (self)
     context (bpy.types.Context): context
@@ -165,8 +163,7 @@ def draw_keymap_detail(	cls: Any,
                         keyitem: KeyMapItem,
                         draw_for_left_blank: Optional[Callable[[Any, UILayout, KeyMapItem],None]] = None
                         ) -> None :
-    """
-    キーバインド設定UIの第2列である、オペレーターの設定とキー設定の詳細が表示される列を作成する
+    """ キーバインド設定UIの第2列である、オペレーターの設定とキー設定の詳細が表示される列を作成する
 
     cls (Any): この関数を draw() 内部で呼び出すクラス (self)
     context (bpy.types.Context): context
