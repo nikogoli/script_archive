@@ -217,6 +217,7 @@ def register():
 def unregister():
     for cls in classes:
         bpy.utils.unregister_class(cls)
+    bpy.app.handlers.load_post.remove(load_handler)
 
 
 if __name__ == "__main__":
