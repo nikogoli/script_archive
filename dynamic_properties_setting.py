@@ -185,7 +185,10 @@ class AddonPrefs(bpy.types.AddonPreferences):
         base: UILayout = self.layout.column()
         for op in self.operators:
             op.draw(context, base)
-        
+
+    def prop_restore(self):
+        for item in self.operators:
+            dynamic_prop_setter(item, bpy.context)
 
 #---------------------------------------------------
 
@@ -193,6 +196,11 @@ classes = [
     ExperimentOp,
     AddonPrefs
 ]
+
+@bpy.app.handlers.persistent
+def load_handler(dummy):
+    prefs = bpy.context.preferences.addons[__name__].preferences
+    prefs.prop_restore()		
 
 
 def register():
@@ -203,7 +211,8 @@ def register():
     if len(items) == 0:
         for i in range(3):
             items.add()
-
+    bpy.app.handlers.load_post.append(load_handler)
+        
 
 def unregister():
     for cls in classes:
