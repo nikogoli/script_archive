@@ -200,8 +200,9 @@ def register():
         bpy.utils.register_class(cls)
     prefs = bpy.context.preferences.addons[__name__].preferences
     items = prefs.operators
-    for i in range(3):
-        items.add()
+    if len(items) == 0:
+        for i in range(3):
+            items.add()
 
 
 def unregister():
